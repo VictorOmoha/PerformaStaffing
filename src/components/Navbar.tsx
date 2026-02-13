@@ -1,18 +1,9 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Menu, X } from 'lucide-react'
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false)
-  const [isScrolled, setIsScrolled] = useState(false)
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20)
-    }
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
 
   const navLinks = [
     { name: 'Services', href: '/services' },
@@ -25,13 +16,7 @@ const Navbar: React.FC = () => {
   ]
 
   return (
-    <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? 'bg-white/95 backdrop-blur-md shadow-lg'
-          : 'bg-transparent'
-      }`}
-    >
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md shadow-lg transition-all duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
@@ -39,19 +24,13 @@ const Navbar: React.FC = () => {
             <img 
               src="/logo.png" 
               alt="Performa Staffing Agency" 
-              className={`h-14 w-auto transition-all ${
-                isScrolled ? '' : 'drop-shadow-lg'
-              }`}
+              className="h-14 w-auto"
             />
             <div className="hidden sm:block">
-              <h1 className={`text-xl font-bold font-display transition-colors ${
-                isScrolled ? 'text-performa-purple' : 'text-white'
-              }`}>
+              <h1 className="text-xl font-bold font-display text-performa-purple">
                 PERFORMA
               </h1>
-              <p className={`text-xs -mt-1 transition-colors ${
-                isScrolled ? 'text-performa-purple/70' : 'text-white/90'
-              }`}>
+              <p className="text-xs -mt-1 text-performa-purple/70">
                 Staffing Agency
               </p>
             </div>
@@ -63,9 +42,7 @@ const Navbar: React.FC = () => {
               <Link
                 key={link.name}
                 to={link.href}
-                className={`text-sm font-medium transition-colors hover:text-performa-gold ${
-                  isScrolled ? 'text-gray-700' : 'text-white'
-                }`}
+                className="text-sm font-medium text-gray-700 hover:text-performa-purple transition-colors"
               >
                 {link.name}
               </Link>
@@ -81,9 +58,7 @@ const Navbar: React.FC = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className={`md:hidden p-2 rounded-lg ${
-              isScrolled ? 'text-performa-purple' : 'text-white'
-            }`}
+            className="md:hidden p-2 rounded-lg text-performa-purple"
           >
             {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
