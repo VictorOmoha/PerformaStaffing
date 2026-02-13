@@ -61,11 +61,11 @@ const Hero: React.FC = () => {
             </div>
           </div>
 
-          {/* Right Content - Floating Cards */}
+          {/* Right Content - Orbital Animation */}
           <div className="hidden lg:block relative">
-            <div className="relative">
+            <div className="relative flex items-center justify-center h-[500px]">
               {/* Main Circle */}
-              <div className="w-96 h-96 mx-auto rounded-full bg-gradient-to-br from-white/10 to-white/5 border-2 border-white/20 backdrop-blur-sm flex items-center justify-center">
+              <div className="w-96 h-96 rounded-full bg-gradient-to-br from-white/10 to-white/5 border-2 border-white/20 backdrop-blur-sm flex items-center justify-center">
                 <div className="text-center">
                   <div className="w-20 h-20 mx-auto bg-gradient-to-br from-performa-gold to-performa-gold-light rounded-full flex items-center justify-center mb-4 shadow-2xl">
                     <Users className="w-10 h-10 text-performa-purple" />
@@ -75,27 +75,32 @@ const Hero: React.FC = () => {
                 </div>
               </div>
 
-              {/* Floating Cards */}
-              <div className="absolute -left-8 top-20 bg-white rounded-xl p-4 shadow-xl animate-fade-in">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center">
-                    <Target className="w-5 h-5 text-green-600" />
-                  </div>
-                  <div>
-                    <p className="text-sm font-semibold text-gray-900">Skilled Talent</p>
-                    <p className="text-xs text-gray-500">Verified & Trained</p>
+              {/* Orbiting Card 1 - Skilled Talent */}
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 animate-orbit-1">
+                <div className="bg-white rounded-xl p-4 shadow-xl hover:shadow-2xl transition-shadow">
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center">
+                      <Target className="w-5 h-5 text-green-600" />
+                    </div>
+                    <div>
+                      <p className="text-sm font-semibold text-gray-900">Skilled Talent</p>
+                      <p className="text-xs text-gray-500">Verified & Trained</p>
+                    </div>
                   </div>
                 </div>
               </div>
 
-              <div className="absolute -right-4 bottom-32 bg-white rounded-xl p-4 shadow-xl animate-fade-in" style={{ animationDelay: '0.2s' }}>
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-performa-purple/10 rounded-lg flex items-center justify-center">
-                    <Award className="w-5 h-5 text-performa-purple" />
-                  </div>
-                  <div>
-                    <p className="text-sm font-semibold text-gray-900">Certified</p>
-                    <p className="text-xs text-gray-500">Industry Standard</p>
+              {/* Orbiting Card 2 - Certified */}
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 animate-orbit-2">
+                <div className="bg-white rounded-xl p-4 shadow-xl hover:shadow-2xl transition-shadow">
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 bg-performa-purple/10 rounded-lg flex items-center justify-center">
+                      <Award className="w-5 h-5 text-performa-purple" />
+                    </div>
+                    <div>
+                      <p className="text-sm font-semibold text-gray-900">Certified</p>
+                      <p className="text-xs text-gray-500">Industry Standard</p>
+                    </div>
                   </div>
                 </div>
               </div>

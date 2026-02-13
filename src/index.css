@@ -63,6 +63,14 @@
   .animate-slide-up {
     animation: slideUp 0.6s ease-out;
   }
+  
+  .animate-orbit-1 {
+    animation: orbit1 20s linear infinite;
+  }
+  
+  .animate-orbit-2 {
+    animation: orbit2 20s linear infinite;
+  }
 }
 
 @keyframes fadeIn {
@@ -82,5 +90,23 @@
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes orbit1 {
+  0% {
+    transform: rotate(0deg) translateX(220px) rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg) translateX(220px) rotate(-360deg);
+  }
+}
+
+@keyframes orbit2 {
+  0% {
+    transform: rotate(180deg) translateX(220px) rotate(-180deg);
+  }
+  100% {
+    transform: rotate(540deg) translateX(220px) rotate(-540deg);
   }
 }
