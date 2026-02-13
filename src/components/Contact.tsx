@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Mail, Phone, MapPin, Clock } from 'lucide-react'
+import { Mail, Clock } from 'lucide-react'
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -49,31 +49,12 @@ const Contact: React.FC = () => {
             <div className="space-y-6">
               <div className="flex gap-4">
                 <div className="w-12 h-12 bg-performa-purple/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <Phone className="w-6 h-6 text-performa-purple" />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-gray-900 mb-1">Phone</h3>
-                  <p className="text-gray-600">+234 (0) XXX XXX XXXX</p>
-                </div>
-              </div>
-
-              <div className="flex gap-4">
-                <div className="w-12 h-12 bg-performa-purple/10 rounded-lg flex items-center justify-center flex-shrink-0">
                   <Mail className="w-6 h-6 text-performa-purple" />
                 </div>
                 <div>
                   <h3 className="font-semibold text-gray-900 mb-1">Email</h3>
-                  <p className="text-gray-600">info@performa-staffing.com</p>
-                </div>
-              </div>
-
-              <div className="flex gap-4">
-                <div className="w-12 h-12 bg-performa-purple/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <MapPin className="w-6 h-6 text-performa-purple" />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-gray-900 mb-1">Address</h3>
-                  <p className="text-gray-600">Abuja, Federal Capital Territory, Nigeria</p>
+                  <p className="text-gray-600">contact@performastaffing.com</p>
+                  <p className="text-sm text-gray-500 mt-1">(Domain setup in progress)</p>
                 </div>
               </div>
 
@@ -83,7 +64,7 @@ const Contact: React.FC = () => {
                 </div>
                 <div>
                   <h3 className="font-semibold text-gray-900 mb-1">Business Hours</h3>
-                  <p className="text-gray-600">Monday - Friday: 9:00 AM - 5:00 PM</p>
+                  <p className="text-gray-600">Monday - Friday: 9:00 AM - 5:00 PM WAT</p>
                 </div>
               </div>
             </div>
