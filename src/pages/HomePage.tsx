@@ -5,6 +5,8 @@ import Services from '../components/Services'
 import Industries from '../components/Industries'
 import About from '../components/About'
 import Team from '../components/Team'
+import Testimonials from '../components/Testimonials'
+import FAQ from '../components/FAQ'
 import Contact from '../components/Contact'
 import Footer from '../components/Footer'
 
@@ -18,6 +20,8 @@ const HomePage: FC = () => {
         <Industries />
         <About />
         <Team />
+        <Testimonials />
+        <FAQ />
         <Contact />
       </main>
       <Footer />

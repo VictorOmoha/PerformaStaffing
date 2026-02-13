@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Mail, Clock } from 'lucide-react'
+import { Mail, Clock, MessageCircle } from 'lucide-react'
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -67,6 +67,31 @@ const Contact: React.FC = () => {
                   <p className="text-gray-600">Monday - Friday: 9:00 AM - 5:00 PM WAT</p>
                 </div>
               </div>
+            </div>
+
+            {/* WhatsApp Quick Contact */}
+            <div className="mt-10 p-6 bg-green-50 border border-green-200 rounded-xl">
+              <div className="flex items-center gap-4 mb-4">
+                <div className="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center">
+                  <MessageCircle className="w-6 h-6 text-white" />
+                </div>
+                <div>
+                  <h3 className="font-semibold text-gray-900">Quick Response on WhatsApp</h3>
+                  <p className="text-sm text-gray-600">Get instant answers to your questions</p>
+                </div>
+              </div>
+              <a
+                href="https://wa.me/2348000000000?text=Hello%20Performa%2C%20I%27m%20interested%20in%20your%20staffing%20services"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-2 w-full bg-green-500 hover:bg-green-600 text-white font-medium py-3 px-6 rounded-lg transition-colors"
+              >
+                <MessageCircle className="w-5 h-5" />
+                Chat with us on WhatsApp
+              </a>
+              <p className="text-xs text-gray-500 mt-3 text-center">
+                Update WhatsApp number: Replace in Contact.tsx (line ~73)
+              </p>
             </div>
           </div>
 
