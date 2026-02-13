@@ -1,27 +1,20 @@
 import type { FC } from 'react'
-import Navbar from './components/Navbar'
-import Hero from './components/Hero'
-import Services from './components/Services'
-import Industries from './components/Industries'
-import About from './components/About'
-import Team from './components/Team'
-import Contact from './components/Contact'
-import Footer from './components/Footer'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import HomePage from './pages/HomePage'
+import PrivacyPolicy from './pages/PrivacyPolicy'
+import TermsOfService from './pages/TermsOfService'
+import CookiePolicy from './pages/CookiePolicy'
 
 const App: FC = () => {
   return (
-    <div className="min-h-screen bg-white">
-      <Navbar />
-      <main>
-        <Hero />
-        <Services />
-        <Industries />
-        <About />
-        <Team />
-        <Contact />
-      </main>
-      <Footer />
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/privacy" element={<PrivacyPolicy />} />
+        <Route path="/terms" element={<TermsOfService />} />
+        <Route path="/cookies" element={<CookiePolicy />} />
+      </Routes>
+    </Router>
   )
 }
 

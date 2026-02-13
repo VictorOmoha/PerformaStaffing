@@ -1,5 +1,6 @@
 import React from 'react'
-import { Medal, Mail, Phone, MapPin, Linkedin, Facebook, Twitter } from 'lucide-react'
+import { Link } from 'react-router-dom'
+import { Medal, Mail, MapPin, Linkedin, Facebook, Twitter } from 'lucide-react'
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear()
@@ -65,17 +66,13 @@ const Footer: React.FC = () => {
             <div>
               <h4 className="font-bold text-lg mb-6">Contact</h4>
               <div className="space-y-4 text-sm text-gray-400">
-                <a href="tel:+234" className="flex items-center gap-3 hover:text-performa-gold transition-colors">
-                  <Phone className="w-4 h-4 flex-shrink-0" />
-                  <span>+234 (0) XXX XXX XXXX</span>
-                </a>
-                <a href="mailto:info@performa-staffing.com" className="flex items-center gap-3 hover:text-performa-gold transition-colors">
+                <a href="mailto:contact@performastaffing.com" className="flex items-center gap-3 hover:text-performa-gold transition-colors">
                   <Mail className="w-4 h-4 flex-shrink-0" />
-                  <span>info@performa-staffing.com</span>
+                  <span>contact@performastaffing.com</span>
                 </a>
                 <div className="flex items-start gap-3 pt-2">
                   <MapPin className="w-4 h-4 flex-shrink-0 mt-0.5" />
-                  <span>Abuja, FCT, Nigeria</span>
+                  <span>Abuja, Federal Capital Territory, Nigeria</span>
                 </div>
               </div>
             </div>
@@ -86,9 +83,9 @@ const Footer: React.FC = () => {
             <div className="grid md:grid-cols-2 gap-8 items-center">
               {/* Legal */}
               <div className="flex flex-wrap gap-6 text-xs text-gray-400">
-                <a href="#" className="hover:text-performa-gold transition-colors">Privacy Policy</a>
-                <a href="#" className="hover:text-performa-gold transition-colors">Terms of Service</a>
-                <a href="#" className="hover:text-performa-gold transition-colors">Cookie Policy</a>
+                <Link to="/privacy" className="hover:text-performa-gold transition-colors">Privacy Policy</Link>
+                <Link to="/terms" className="hover:text-performa-gold transition-colors">Terms of Service</Link>
+                <Link to="/cookies" className="hover:text-performa-gold transition-colors">Cookie Policy</Link>
               </div>
 
               {/* Copyright */}
