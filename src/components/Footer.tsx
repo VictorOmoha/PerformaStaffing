@@ -40,27 +40,27 @@ const Footer: React.FC = () => {
               </div>
             </div>
 
-            {/* Services */}
+            {/* Quick Links */}
             <div>
-              <h4 className="font-bold text-lg mb-6">Services</h4>
+              <h4 className="font-bold text-lg mb-6">Quick Links</h4>
               <ul className="space-y-3 text-sm text-gray-400">
-                <li><a href="#services" className="hover:text-performa-gold transition-colors">Recruitment & Staffing</a></li>
-                <li><a href="#services" className="hover:text-performa-gold transition-colors">Training & Development</a></li>
-                <li><a href="#services" className="hover:text-performa-gold transition-colors">HR Consulting</a></li>
-                <li><a href="#services" className="hover:text-performa-gold transition-colors">Background Screening</a></li>
-                <li><a href="#services" className="hover:text-performa-gold transition-colors">Talent Assessment</a></li>
+                <li><Link to="/services" className="hover:text-performa-gold transition-colors">Services</Link></li>
+                <li><Link to="/industries" className="hover:text-performa-gold transition-colors">Industries</Link></li>
+                <li><Link to="/about" className="hover:text-performa-gold transition-colors">About Us</Link></li>
+                <li><Link to="/case-studies" className="hover:text-performa-gold transition-colors">Case Studies</Link></li>
+                <li><Link to="/careers" className="hover:text-performa-gold transition-colors">Careers</Link></li>
               </ul>
             </div>
 
-            {/* Industries */}
+            {/* Resources */}
             <div>
-              <h4 className="font-bold text-lg mb-6">Industries</h4>
+              <h4 className="font-bold text-lg mb-6">Resources</h4>
               <ul className="space-y-3 text-sm text-gray-400">
-                <li><a href="#industries" className="hover:text-performa-gold transition-colors">Hospitality</a></li>
-                <li><a href="#industries" className="hover:text-performa-gold transition-colors">Corporate</a></li>
-                <li><a href="#industries" className="hover:text-performa-gold transition-colors">Government</a></li>
-                <li><a href="#industries" className="hover:text-performa-gold transition-colors">Technology</a></li>
-                <li><a href="#industries" className="hover:text-performa-gold transition-colors">Finance</a></li>
+                <li><Link to="/blog" className="hover:text-performa-gold transition-colors">Blog & Insights</Link></li>
+                <li><Link to="/contact" className="hover:text-performa-gold transition-colors">Contact Us</Link></li>
+                <li><Link to="/privacy" className="hover:text-performa-gold transition-colors">Privacy Policy</Link></li>
+                <li><Link to="/terms" className="hover:text-performa-gold transition-colors">Terms of Service</Link></li>
+                <li><Link to="/cookies" className="hover:text-performa-gold transition-colors">Cookie Policy</Link></li>
               </ul>
             </div>
 
@@ -82,20 +82,20 @@ const Footer: React.FC = () => {
 
           {/* Divider */}
           <div className="border-t border-white/10 pt-8">
-            <div className="grid md:grid-cols-2 gap-8 items-center">
-              {/* Legal */}
-              <div className="flex flex-wrap gap-6 text-xs text-gray-400">
-                <Link to="/privacy" className="hover:text-performa-gold transition-colors">Privacy Policy</Link>
-                <Link to="/terms" className="hover:text-performa-gold transition-colors">Terms of Service</Link>
-                <Link to="/cookies" className="hover:text-performa-gold transition-colors">Cookie Policy</Link>
-              </div>
-
+            <div className="flex flex-col md:flex-row justify-between items-center gap-4">
               {/* Copyright */}
-              <div className="text-xs text-gray-500 md:text-right">
+              <div className="text-xs text-gray-500 text-center md:text-left">
                 <p>
                   &copy; {currentYear} Performa Human Resource Management and Staffing Agency Ltd.
                   <br />
                   RC: 1991081 | CAC Certified
+                </p>
+              </div>
+              
+              {/* Built By */}
+              <div className="text-xs text-gray-500 text-center md:text-right">
+                <p>
+                  Built by <a href="https://omohasolutions.com" target="_blank" rel="noopener noreferrer" className="text-performa-gold hover:underline">Omoha Solutions</a>
                 </p>
               </div>
             </div>
