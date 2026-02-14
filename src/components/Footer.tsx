@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { Medal, Mail, MapPin, Linkedin, Facebook, Twitter } from 'lucide-react'
+import { Mail, MapPin, Linkedin, Facebook, Twitter } from 'lucide-react'
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear()
@@ -13,15 +13,17 @@ const Footer: React.FC = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
             {/* Brand */}
             <div>
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-12 h-12 bg-performa-gold rounded-full flex items-center justify-center">
-                  <Medal className="w-6 h-6 text-performa-purple" />
-                </div>
+              <Link to="/" className="flex items-center gap-3 mb-6">
+                <img 
+                  src="/logo.png" 
+                  alt="Performa Staffing Agency" 
+                  className="h-14 w-auto"
+                />
                 <div>
                   <h3 className="font-bold text-lg">PERFORMA</h3>
                   <p className="text-xs text-gray-400">Staffing Agency</p>
                 </div>
-              </div>
+              </Link>
               <p className="text-gray-400 text-sm mb-4">
                 Professional staffing solutions for Nigeria's leading organizations.
               </p>
