@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Mail, Clock, MessageCircle } from 'lucide-react'
+import emailjs from '@emailjs/browser'
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -11,6 +12,8 @@ const Contact: React.FC = () => {
     message: '',
   })
   const [submitted, setSubmitted] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [error, setError] = useState('')
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target
@@ -19,13 +22,39 @@ const Contact: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    // Here you would typically send to a backend
-    console.log('Form submitted:', formData)
-    setSubmitted(true)
-    setTimeout(() => {
-      setSubmitted(false)
-      setFormData({ name: '', email: '', phone: '', company: '', service: '', message: '' })
-    }, 3000)
+    setIsSubmitting(true)
+    setError('')
+
+    // EmailJS configuration
+    const SERVICE_ID = 'service_bwswdj3'
+    const TEMPLATE_ID = 'template_5n76a6f'
+    const PUBLIC_KEY = '_B94n2ygD2Ng44ZJ4'
+
+    // Prepare template parameters
+    const templateParams = {
+      from_name: formData.name,
+      from_email: formData.email,
+      from_phone: formData.phone || 'Not provided',
+      from_company: formData.company || 'Not provided',
+      service_interest: formData.service || 'Not specified',
+      message: formData.message,
+    }
+
+    // Send email via EmailJS
+    emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams, PUBLIC_KEY)
+      .then(() => {
+        setSubmitted(true)
+        setIsSubmitting(false)
+        setTimeout(() => {
+          setSubmitted(false)
+          setFormData({ name: '', email: '', phone: '', company: '', service: '', message: '' })
+        }, 5000)
+      })
+      .catch((error) => {
+        console.error('EmailJS Error:', error)
+        setError('Failed to send message. Please try emailing us directly at contact@performastaffing.com')
+        setIsSubmitting(false)
+      })
   }
 
   return (
@@ -201,15 +230,24 @@ const Contact: React.FC = () => {
 
               <button
                 type="submit"
-                className="btn-primary w-full"
+                disabled={isSubmitting}
+                className="btn-primary w-full disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                Send Message
+                {isSubmitting ? 'Sending...' : 'Send Message'}
               </button>
 
               {submitted && (
                 <div className="p-4 bg-green-50 border border-green-200 rounded-lg">
                   <p className="text-green-800 text-sm font-medium">
-                    ✓ Message sent! We'll be in touch soon.
+                    ✓ Message sent successfully! We'll get back to you within 24 hours.
+                  </p>
+                </div>
+              )}
+
+              {error && (
+                <div className="p-4 bg-red-50 border border-red-200 rounded-lg">
+                  <p className="text-red-800 text-sm font-medium">
+                    ✗ {error}
                   </p>
                 </div>
               )}
