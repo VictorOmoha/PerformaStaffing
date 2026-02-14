@@ -53,8 +53,9 @@ const Contact: React.FC = () => {
                 </div>
                 <div>
                   <h3 className="font-semibold text-gray-900 mb-1">Email</h3>
-                  <p className="text-gray-600">contact@performastaffing.com</p>
-                  <p className="text-sm text-gray-500 mt-1">(Domain setup in progress)</p>
+                  <a href="mailto:contact@performastaffing.com" className="text-gray-600 hover:text-performa-purple transition-colors">
+                    contact@performastaffing.com
+                  </a>
                 </div>
               </div>
 
