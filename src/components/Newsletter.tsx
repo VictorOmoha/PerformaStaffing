@@ -1,25 +1,45 @@
 import React, { useState } from 'react'
 import { Mail, Send, CheckCircle } from 'lucide-react'
+import emailjs from '@emailjs/browser'
 
 const Newsletter: React.FC = () => {
   const [email, setEmail] = useState('')
   const [subscribed, setSubscribed] = useState(false)
   const [loading, setLoading] = useState(false)
+  const [error, setError] = useState('')
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     setLoading(true)
-    
-    // Simulate API call
-    setTimeout(() => {
-      console.log('Newsletter subscription:', email)
-      setSubscribed(true)
-      setLoading(false)
-      setEmail('')
-      
-      // Reset after 5 seconds
-      setTimeout(() => setSubscribed(false), 5000)
-    }, 1000)
+    setError('')
+
+    // EmailJS configuration (same service as contact form)
+    const SERVICE_ID = 'service_bwswdj3'
+    const TEMPLATE_ID = 'template_56q6uwg'
+    const PUBLIC_KEY = '_B94n2ygD2Ng44ZJ4'
+
+    // Send subscription notification to contact@performastaffing.com
+    const templateParams = {
+      from_name: 'Newsletter Subscriber',
+      from_email: email,
+      from_phone: 'N/A',
+      from_company: 'N/A',
+      service_interest: 'Newsletter Subscription',
+      message: `New newsletter subscription from: ${email}`,
+    }
+
+    emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams, PUBLIC_KEY)
+      .then(() => {
+        setSubscribed(true)
+        setLoading(false)
+        setEmail('')
+        setTimeout(() => setSubscribed(false), 5000)
+      })
+      .catch((err) => {
+        console.error('Newsletter subscription error:', err)
+        setError('Failed to subscribe. Please try again.')
+        setLoading(false)
+      })
   }
 
   return (
@@ -79,6 +99,10 @@ const Newsletter: React.FC = () => {
           <p className="text-sm text-white/70 mt-4">
             📬 One email per week. No spam. Unsubscribe anytime.
           </p>
+
+          {error && (
+            <p className="text-sm text-red-300 mt-2">{error}</p>
+          )}
         </form>
 
         {/* Benefits */}
@@ -95,20 +119,6 @@ const Newsletter: React.FC = () => {
             <div className="text-2xl font-bold text-performa-gold mb-2">Free</div>
             <div className="text-white/80 text-sm">No cost, no credit card required</div>
           </div>
-        </div>
-
-        {/* Note for developer */}
-        <div className="mt-8 p-4 bg-white/10 rounded-lg text-left text-sm text-white/70">
-          <p className="font-semibold mb-2">📝 Developer Note:</p>
-          <p>
-            Newsletter currently logs to console. To make functional:
-          </p>
-          <ul className="list-disc list-inside mt-2 space-y-1 text-xs">
-            <li>Option 1: Use EmailJS (same as contact form)</li>
-            <li>Option 2: Integrate Mailchimp API</li>
-            <li>Option 3: Use ConvertKit or Substack</li>
-            <li>Option 4: Custom backend endpoint</li>
-          </ul>
         </div>
       </div>
     </section>
