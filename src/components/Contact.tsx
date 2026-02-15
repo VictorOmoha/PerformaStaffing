@@ -27,7 +27,7 @@ const Contact: React.FC = () => {
 
     // EmailJS configuration
     const SERVICE_ID = 'service_bwswdj3'
-    const TEMPLATE_ID = 'template_5n76a6f'
+    const TEMPLATE_ID = 'template_56q6uwg'
     const PUBLIC_KEY = '_B94n2ygD2Ng44ZJ4'
 
     // Prepare template parameters
