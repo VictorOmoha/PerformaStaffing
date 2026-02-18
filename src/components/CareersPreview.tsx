@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { Briefcase, MapPin, Clock, DollarSign, ArrowRight, Search } from 'lucide-react'
 
 interface Job {
@@ -191,9 +192,9 @@ const CareersPreview: React.FC = () => {
               <p className="text-white/90 mb-6">
                 Submit your CV to our talent database, and we'll match you with opportunities that fit your skills and career goals.
               </p>
-              <button className="btn-secondary">
+              <a href="#submit-profile" className="btn-secondary inline-block">
                 Submit Your CV
-              </button>
+              </a>
             </div>
             <div>
               <h3 className="text-2xl sm:text-3xl font-bold mb-4">
@@ -202,9 +203,9 @@ const CareersPreview: React.FC = () => {
               <p className="text-white/90 mb-6">
                 Post your job openings with us and get access to our network of pre-screened, qualified candidates.
               </p>
-              <button className="btn-outline border-white text-white hover:bg-white hover:text-performa-purple">
+              <Link to="/request-staff" className="btn-outline border-white text-white hover:bg-white hover:text-performa-purple inline-block">
                 Post a Job
-              </button>
+              </Link>
             </div>
           </div>
         </div>
