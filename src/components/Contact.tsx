@@ -40,8 +40,18 @@ const Contact: React.FC = () => {
       message: formData.message,
     }
 
-    // Send email via EmailJS
-    emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams, PUBLIC_KEY)
+    // Auto-reply template params (sent back to the user)
+    const autoReplyParams = {
+      to_name: formData.name,
+      to_email: formData.email,
+      service_interest: formData.service || 'General Inquiry',
+    }
+
+    // Send both emails: admin notification + user auto-reply
+    Promise.all([
+      emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams, PUBLIC_KEY),
+      emailjs.send(SERVICE_ID, 'template_autoreply', autoReplyParams, PUBLIC_KEY),
+    ])
       .then(() => {
         setSubmitted(true)
         setIsSubmitting(false)

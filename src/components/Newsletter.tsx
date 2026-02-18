@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { Mail, Send, CheckCircle } from 'lucide-react'
-import emailjs from '@emailjs/browser'
 
 const Newsletter: React.FC = () => {
   const [email, setEmail] = useState('')
@@ -8,38 +7,33 @@ const Newsletter: React.FC = () => {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setLoading(true)
     setError('')
 
-    // EmailJS configuration (same service as contact form)
-    const SERVICE_ID = 'service_bwswdj3'
-    const TEMPLATE_ID = 'template_56q6uwg'
-    const PUBLIC_KEY = '_B94n2ygD2Ng44ZJ4'
+    try {
+      const response = await fetch('/.netlify/functions/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email }),
+      })
 
-    // Send subscription notification to contact@performastaffing.com
-    const templateParams = {
-      from_name: 'Newsletter Subscriber',
-      from_email: email,
-      from_phone: 'N/A',
-      from_company: 'N/A',
-      service_interest: 'Newsletter Subscription',
-      message: `New newsletter subscription from: ${email}`,
+      const data = await response.json()
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Subscription failed')
+      }
+
+      setSubscribed(true)
+      setEmail('')
+      setTimeout(() => setSubscribed(false), 6000)
+    } catch (err: unknown) {
+      const message = err instanceof Error ? err.message : 'Something went wrong. Please try again.'
+      setError(message)
+    } finally {
+      setLoading(false)
     }
-
-    emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams, PUBLIC_KEY)
-      .then(() => {
-        setSubscribed(true)
-        setLoading(false)
-        setEmail('')
-        setTimeout(() => setSubscribed(false), 5000)
-      })
-      .catch((err) => {
-        console.error('Newsletter subscription error:', err)
-        setError('Failed to subscribe. Please try again.')
-        setLoading(false)
-      })
   }
 
   return (
@@ -55,7 +49,7 @@ const Newsletter: React.FC = () => {
           Stay Informed with HR Insights
         </h2>
         <p className="text-lg text-white/90 mb-10 max-w-2xl mx-auto">
-          Get expert tips, industry trends, and exclusive content delivered to your inbox. 
+          Get expert tips, industry trends, and exclusive content delivered to your inbox.
           Join 1,000+ HR professionals and business leaders.
         </p>
 
@@ -85,7 +79,7 @@ const Newsletter: React.FC = () => {
               {subscribed ? (
                 <>
                   <CheckCircle className="w-5 h-5" />
-                  Subscribed!
+                  Check Your Email!
                 </>
               ) : (
                 <>
@@ -99,6 +93,12 @@ const Newsletter: React.FC = () => {
           <p className="text-sm text-white/70 mt-4">
             📬 One email per week. No spam. Unsubscribe anytime.
           </p>
+
+          {subscribed && (
+            <p className="text-sm text-green-300 mt-2 font-medium">
+              ✓ Almost there! Check your inbox and confirm your subscription.
+            </p>
+          )}
 
           {error && (
             <p className="text-sm text-red-300 mt-2">{error}</p>
