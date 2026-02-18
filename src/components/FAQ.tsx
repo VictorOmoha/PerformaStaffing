@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 import { ChevronDown, HelpCircle } from 'lucide-react'
 
 interface FAQItem {
@@ -174,12 +175,12 @@ const FAQ: React.FC = () => {
           <p className="text-gray-600 mb-6">
             Can't find the answer you're looking for? Our team is here to help.
           </p>
-          <a
-            href="#contact"
+          <Link
+            to="/contact"
             className="btn-primary inline-block"
           >
             Contact Us
-          </a>
+          </Link>
         </div>
       </div>
     </section>

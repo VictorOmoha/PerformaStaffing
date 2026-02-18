@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { 
   Utensils, 
   Building2, 
@@ -144,9 +145,9 @@ const Industries: React.FC = () => {
           <p className="text-gray-400 mb-6">
             Don't see your industry? We adapt to serve businesses of all types.
           </p>
-          <a href="#contact" className="btn-secondary">
+          <Link to="/contact" className="btn-secondary">
             Get in Touch
-          </a>
+          </Link>
         </div>
       </div>
     </section>

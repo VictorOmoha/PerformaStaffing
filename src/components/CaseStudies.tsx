@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 import { Building2, TrendingUp, Users, Award, ArrowRight, CheckCircle } from 'lucide-react'
 
 interface CaseStudy {
@@ -271,10 +272,10 @@ const CaseStudies: React.FC = () => {
           <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
             Join hundreds of organizations that have transformed their HR operations with Performa's expertise
           </p>
-          <a href="#contact" className="btn-primary inline-flex items-center gap-2">
+          <Link to="/request-staff" className="btn-primary inline-flex items-center gap-2">
             Start Your Project
             <ArrowRight className="w-5 h-5" />
-          </a>
+          </Link>
         </div>
       </div>
     </section>

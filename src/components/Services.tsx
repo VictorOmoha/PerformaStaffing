@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { Users, GraduationCap, Briefcase, ClipboardCheck, UserCheck, Shield } from 'lucide-react'
 
 const services = [
@@ -89,8 +90,8 @@ const Services: React.FC = () => {
               </ul>
 
               {/* CTA */}
-              <a
-                href="#contact"
+              <Link
+                to="/contact"
                 className="inline-flex items-center mt-6 text-performa-purple font-medium hover:text-performa-gold transition-colors group/link"
               >
                 Learn More
@@ -102,7 +103,7 @@ const Services: React.FC = () => {
                 >
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>
-              </a>
+              </Link>
             </div>
           ))}
         </div>
@@ -112,9 +113,9 @@ const Services: React.FC = () => {
           <p className="text-gray-600 mb-6">
             Need a custom solution? We adapt our services to meet your specific requirements.
           </p>
-          <a href="#contact" className="btn-primary">
+          <Link to="/contact" className="btn-primary">
             Discuss Your Needs
-          </a>
+          </Link>
         </div>
       </div>
     </section>

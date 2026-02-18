@@ -212,13 +212,13 @@ const CareersPreview: React.FC = () => {
 
         {/* Bottom Note */}
         <div className="mt-12 text-center">
-          <a
-            href="#contact"
+          <Link
+            to="/careers"
             className="inline-flex items-center gap-2 text-performa-purple font-semibold hover:gap-3 transition-all"
           >
             View All 150+ Job Openings
             <ArrowRight className="w-5 h-5" />
-          </a>
+          </Link>
         </div>
 
         {/* Developer Note */}

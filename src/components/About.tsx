@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { CheckCircle, Target, Eye, Heart } from 'lucide-react'
 
 const About: React.FC = () => {
@@ -52,9 +53,9 @@ const About: React.FC = () => {
               </div>
             </div>
 
-            <a href="#contact" className="btn-primary">
+            <Link to="/contact" className="btn-primary">
               Let's Work Together
-            </a>
+            </Link>
           </div>
 
           {/* Right Content - Mission & Vision */}
