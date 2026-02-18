@@ -48,6 +48,12 @@ const Navbar: React.FC = () => {
               </Link>
             ))}
             <Link
+              to="/employer/post-job"
+              className="text-sm px-5 py-2.5 rounded-lg bg-performa-gold text-performa-purple font-semibold hover:bg-performa-gold-light transition-colors"
+            >
+              Post a Job
+            </Link>
+            <Link
               to="/contact"
               className="btn-secondary text-sm px-5 py-2.5"
             >
@@ -80,9 +86,16 @@ const Navbar: React.FC = () => {
               </Link>
             ))}
             <Link
+              to="/employer/post-job"
+              onClick={() => setIsOpen(false)}
+              className="block text-center mt-2 px-6 py-3 rounded-lg bg-performa-gold text-performa-purple font-semibold hover:bg-performa-gold-light transition-colors"
+            >
+              Post a Job
+            </Link>
+            <Link
               to="/contact"
               onClick={() => setIsOpen(false)}
-              className="btn-secondary block text-center mt-4"
+              className="btn-secondary block text-center mt-2"
             >
               Get Started
             </Link>

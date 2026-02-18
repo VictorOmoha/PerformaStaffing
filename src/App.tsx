@@ -1,5 +1,11 @@
 import type { FC } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { AuthProvider } from './context/AuthContext'
+import ProtectedRoute from './components/ProtectedRoute'
+import EmployerSignupPage from './pages/employer/EmployerSignupPage'
+import EmployerLoginPage from './pages/employer/EmployerLoginPage'
+import EmployerDashboardPage from './pages/employer/EmployerDashboardPage'
+import PostJobPage from './pages/employer/PostJobPage'
 import HomePage from './pages/HomePage'
 import ServicesPage from './pages/ServicesPage'
 import IndustriesPage from './pages/IndustriesPage'
@@ -15,6 +21,7 @@ import RequestStaffPage from './pages/RequestStaffPage'
 
 const App: FC = () => {
   return (
+    <AuthProvider>
     <Router>
       <Routes>
         <Route path="/" element={<HomePage />} />
@@ -26,11 +33,16 @@ const App: FC = () => {
         <Route path="/blog" element={<BlogPage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/request-staff" element={<RequestStaffPage />} />
+        <Route path="/employer/signup" element={<EmployerSignupPage />} />
+        <Route path="/employer/login" element={<EmployerLoginPage />} />
+        <Route path="/employer/dashboard" element={<ProtectedRoute><EmployerDashboardPage /></ProtectedRoute>} />
+        <Route path="/employer/post-job" element={<ProtectedRoute><PostJobPage /></ProtectedRoute>} />
         <Route path="/privacy" element={<PrivacyPolicy />} />
         <Route path="/terms" element={<TermsOfService />} />
         <Route path="/cookies" element={<CookiePolicy />} />
       </Routes>
     </Router>
+    </AuthProvider>
   )
 }
 

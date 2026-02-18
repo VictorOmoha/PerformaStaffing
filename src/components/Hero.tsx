@@ -45,6 +45,17 @@ const Hero: React.FC = () => {
               </Link>
             </div>
 
+            {/* Employer Portal CTA */}
+            <div className="mt-4 flex justify-center lg:justify-start">
+              <Link
+                to="/employer/signup"
+                className="inline-flex items-center gap-2 text-sm text-white/80 hover:text-white transition-colors group"
+              >
+                <span className="px-2 py-0.5 bg-performa-gold text-performa-purple text-xs font-bold rounded">FREE</span>
+                Hiring? Post jobs and reach top talent →
+              </Link>
+            </div>
+
             {/* Stats */}
             <div className="grid grid-cols-3 gap-6 mt-12 pt-12 border-t border-white/20">
               <div>
