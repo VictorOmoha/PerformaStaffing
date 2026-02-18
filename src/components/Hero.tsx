@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { ArrowRight, Users, Award, Target } from 'lucide-react'
 
 const Hero: React.FC = () => {
@@ -35,13 +36,13 @@ const Hero: React.FC = () => {
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <a href="#contact" className="btn-secondary group">
+              <Link to="/request-staff" className="btn-secondary group">
                 Request Staff
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </a>
-              <a href="#contact" className="btn-outline border-white text-white hover:bg-white hover:text-performa-purple">
+              </Link>
+              <Link to="/careers" className="btn-outline border-white text-white hover:bg-white hover:text-performa-purple">
                 Find Work
-              </a>
+              </Link>
             </div>
 
             {/* Stats */}
